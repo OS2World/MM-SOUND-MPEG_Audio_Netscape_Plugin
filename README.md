@@ -6,7 +6,7 @@ Netscape Navigator Plug-in for MPEG Audio-1.
 
 LICENSE
 ===============
-* GNU GPL V2
+* N/A
 
 COMPILE TOOLS
 ===============
