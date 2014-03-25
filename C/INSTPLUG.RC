@@ -1,0 +1,4 @@
+#include <OS2.H>
+
+ICON  1     RC\INSTALL.ICO
+

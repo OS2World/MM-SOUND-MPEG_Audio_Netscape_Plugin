@@ -1,0 +1,53 @@
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+DLGINCLUDE 1 "dialog.h"
+
+DLGTEMPLATE ID_MPEGFILE_DIALOG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About the audio file", ID_MPEGFILE_DIALOG, 12, 6, 294, 188, 
+            WS_VISIBLE, FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        DEFPUSHBUTTON   "~O.K.", ID_MF_OK, 232, 0, 62, 16
+        MLE             "", ID_MF_MESSAGE, 4, 18, 288, 46, MLS_WORDWRAP | 
+                        MLS_VSCROLL | WS_GROUP
+        LTEXT           "Message for listeners (mpal format only)", 
+                        ID_MF_SS_MESSAGE, 4, 66, 182, 10, DT_VCENTER
+        LTEXT           "Audio File Title (mpal format only)", 
+                        ID_MF_SS_TITLE, 4, 176, 288, 8
+        ENTRYFIELD      "", ID_MF_TITLE, 6, 164, 284, 8, ES_MARGIN
+        LTEXT           "Format", ID_MF_SS_FORMAT, 190, 150, 102, 8
+        CONTROL         "", ID_MF_FORMAT, 190, 58, 102, 91, WC_COMBOBOX, 
+                        CBS_DROPDOWNLIST | WS_GROUP | WS_TABSTOP | 
+                        WS_VISIBLE
+        GROUPBOX        "Offer's Information (mpal format only)", 
+                        ID_MF_GROUP_OFFER, 4, 78, 182, 84
+        LTEXT           "Transperent Speed (kBps)", ID_MF_SS_SPEED, 190, 126, 
+                        102, 10
+        CONTROL         "", ID_MF_SPEED, 212, 40, 80, 87, WC_COMBOBOX, 
+                        CBS_DROPDOWNLIST | WS_GROUP | WS_TABSTOP | 
+                        WS_VISIBLE
+        AUTOCHECKBOX    "Original (mpeg)", ID_MF_ORIGINAL, 190, 102, 102, 10
+        AUTOCHECKBOX    "Copyrighted (mpeg)", ID_MF_COPYRIGHT, 190, 90, 102, 
+                        10
+        AUTOCHECKBOX    "Emphasis (mpeg)", ID_MF_EMPHASIS, 190, 78, 102, 10
+        AUTOCHECKBOX    "Doublize Compless (mpal)", ID_MF_DOUBLIZECOMP, 190, 
+                        66, 102, 10
+        PUSHBUTTON      "~Create MPAL Formated Audio file", ID_MF_MPALCONV, 
+                        92, 0, 138, 16
+        PUSHBUTTON      "~Standard Convert", ID_MF_CONV, 4, 0, 86, 16
+        LTEXT           "Offer's Name", ID_MF_SS_NAME, 10, 144, 88, 8, 
+                        DT_VCENTER
+        ENTRYFIELD      "", ID_MF_OFNAME, 10, 132, 84, 8, ES_MARGIN
+        LTEXT           "E-mail address", ID_MF_SS_EMAIL, 8, 120, 88, 8, 
+                        DT_VCENTER
+        ENTRYFIELD      "", ID_MF_OFEMAIL, 10, 108, 84, 8, ES_MARGIN
+        ENTRYFIELD      "", ID_MF_OFHTTP, 10, 84, 84, 8, ES_MARGIN
+        LTEXT           "Web site address", ID_MF_SS_HTTP, 8, 96, 88, 8, 
+                        DT_VCENTER
+        PUSHBUTTON      "~Picture", ID_MF_BTNPICTURE, 98, 138, 44, 16
+        LISTBOX         ID_MF_EVENTLIST, 98, 82, 84, 46
+        LTEXT           "Event List", ID_MF_SS_EVENTLIST, 98, 128, 84, 8
+        PUSHBUTTON      "~File", ID_MF_BTNFILE, 142, 138, 42, 16
+    END
+END

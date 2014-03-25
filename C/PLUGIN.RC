@@ -1,0 +1,137 @@
+/* ************************************************************** */
+/* ネットケープ・プラグインの作成                                 */
+/* -------------------------------------------------------------- */
+/* 開発ユーザー用のリソースファイル                               */
+/* 【PLUGIN.RC】                                                  */
+/* -------------------------------------------------------------- */
+/*                   このファイルを、独自にカスタムしてください。 */
+/* ************************************************************** */
+#include <NSPLUG32.H>
+#include "PLUGIN.H"
+#include "DIALOG.H"
+
+/* ************************************************************** */
+/* 特製インストールダイアログ (NSPLUG32の機能) のインクリュード   */
+/* -------------------------------------------------------------- */
+/*                   必要ない場合は、コメントアウトしてください。 */
+/*   必要な場合、INSTALL.DLG は SET INCLUDE= 上のおいてください。 */
+/* ************************************************************** */
+RCINCLUDE <INSTALL.DLG>
+RCINCLUDE "TABLE.RC"
+RCINCLUDE "DIALOG.DLG"
+
+/* ************************************************************** */
+/* プラグイン情報の宣言                                           */
+/* ************************************************************** */
+RCDATA NP_INFO_ProductVersion    { 1,0,0,1 }
+
+RCDATA NP_INFO_MIMEType          { "audio/x-mpeg|audio/mpeg\0"}
+RCDATA NP_INFO_FileExtents       { "mpa mp2 mp3|mpa mp2 mp3\0"}
+RCDATA NP_INFO_FileOpenName      { "MPEG Audio-1 Layer-1/2/3|MPEG Audio-1 Layer-1/2/3\0"};
+RCDATA NP_INFO_FileDescription   { "<B>Netscape Navigator Plug-in for MPEG Audio-1</B><BR>Version 1.0.0 Alpha-R1<BR>Release 2000/05/08<BR>(C) 2000, <A HREF=\"mailto:os2warp@big.or.jp\">Yuuriru Mint</A>, All Rights Reserved. <A HREF=\"http://www7.big.or.jp/~os2warp/\">Npmpalwv - Support WEB</A><BR><I>Team MMOS/2 Tokyo Multimedia Communications</I>\0"}
+RCDATA NP_INFO_ProductName       { "MPEG Audio\0"}
+
+RCDATA NP_INFO_FileVersion       { 1,0,0,1 }
+RCDATA NP_INFO_CompanyName       { "TEAM MMOS/2 TOKYO\0"}
+RCDATA NP_INFO_InternalName      { "NPMPA\0"}
+RCDATA NP_INFO_LegalCopyright    { "Copyright Yuuriru Mint \251 2000\0" }
+RCDATA NP_INFO_OriginalFilename  { PLUGIN_DLLNAME "\0" }
+
+/* ************************************************************** */
+/* 開発ユーザー独自のさらなるカスタムは、ここからどうぞ           */
+/* ************************************************************** */
+ICON     1                       "RC\PLUGIN.ICO"
+
+ICON     100                     "RC\VOLUME.ICO"
+ICON     110                     "RC\FLDRWAV0.ICO"
+ICON     111                     "RC\FLDRWAV1.ICO"
+ICON     120                     "RC\BROWSER.ICO"
+
+BITMAP   200                     "RC\LOGO1.BMP"
+BITMAP   201                     "RC\LOGO2.BMP"
+BITMAP   202                     "RC\LOGO3.BMP"
+BITMAP   210                     "RC\TBLPLAY2.BMP"
+BITMAP   211                     "RC\TM2TITLE.BMP"
+
+BITMAP   221                     "RC\LOGO2-1.BMP"
+BITMAP   241                     "RC\LOGO2-2.BMP"
+BITMAP   261                     "RC\LOGO2-3.BMP"
+
+MENU  1
+BEGIN
+   MENUITEM  "~Jump to the Multimedia ~Index",    ID_MENU_INDEX,  MIS_TEXT
+   SUBMENU   "Internet web site", -1, MIS_TEXT
+      BEGIN
+      MENUITEM  "~Offer's page",    ID_MENU_CONNECTTOOFFER,  MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM  "~TM2Labo Web page",    ID_MENU_CONNECTTOTM2LABO,  MIS_TEXT
+      END
+   MENUITEM SEPARATOR
+   MENUITEM  "~File save",    ID_MENU_SAVE,  MIS_TEXT
+   MENUITEM  "~Save ~as...",    ID_MENU_SAVEAS,  MIS_TEXT
+   MENUITEM  "~Open...",    ID_MENU_OPEN,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM  "~About the audio file",    ID_MENU_ABOUTTHEFILE,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM  "~Play",    ID_MENU_PLAY,  MIS_TEXT
+   MENUITEM  "~Stop",    ID_MENU_STOP,  MIS_TEXT
+   MENUITEM  "Paus~e",    ID_MENU_PAUSE,  MIS_TEXT
+   MENUITEM  "~Resume",    ID_MENU_RESUME,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM  "Product ~Infomation", ID_MENU_PRODUCTINFO,  MIS_TEXT
+END
+
+MENU  2
+BEGIN
+   MENUITEM  "マルチメディアインデックス(~I)",    ID_MENU_INDEX,  MIS_TEXT
+   SUBMENU   "関連サイト", -1, MIS_TEXT
+      BEGIN
+      MENUITEM  "提供者のサイトへ接続(~O)",    ID_MENU_CONNECTTOOFFER,  MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM  "サポートサイトへ接続(~J)",    ID_MENU_CONNECTTOTM2LABO,  MIS_TEXT
+      END
+   MENUITEM SEPARATOR
+   MENUITEM  "保存(~F)",    ID_MENU_SAVE,  MIS_TEXT
+   MENUITEM  "形式変換を行って保存(~A)...",    ID_MENU_SAVEAS,  MIS_TEXT
+   MENUITEM  "開く(~O)...",    ID_MENU_OPEN,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM  "このファイルについて(~A)",    ID_MENU_ABOUTTHEFILE,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM  "再生(~P)",    ID_MENU_PLAY,  MIS_TEXT
+   MENUITEM  "停止(~S)",    ID_MENU_STOP,  MIS_TEXT
+   MENUITEM  "一時停止(~E)",    ID_MENU_PAUSE,  MIS_TEXT
+   MENUITEM  "再開(~R)",    ID_MENU_RESUME,  MIS_TEXT
+   MENUITEM SEPARATOR
+   MENUITEM  "製品情報(~I)",    ID_MENU_PRODUCTINFO,  MIS_TEXT
+END
+
+
+
+
+MENU  5
+BEGIN
+   MENUITEM  "~Jump to the Multimedia ~Index",    ID_MENU_INDEX,  MIS_TEXT
+   SUBMENU   "Internet web site", -1, MIS_TEXT
+      BEGIN
+      MENUITEM  "~Offer's page",    ID_MENU_CONNECTTOOFFER,  MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM  "~TM2Labo Web page",    ID_MENU_CONNECTTOTM2LABO,  MIS_TEXT
+      END
+   MENUITEM SEPARATOR
+   MENUITEM  "Product ~Infomation", ID_MENU_PRODUCTINFO,  MIS_TEXT
+END
+
+MENU  6
+BEGIN
+   MENUITEM  "マルチメディアインデックス(~I)",    ID_MENU_INDEX,  MIS_TEXT
+   SUBMENU   "関連サイト", -1, MIS_TEXT
+      BEGIN
+      MENUITEM  "提供者のサイトへ接続(~O)",    ID_MENU_CONNECTTOOFFER,  MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM  "サポートサイトへ接続(~J)",    ID_MENU_CONNECTTOTM2LABO,  MIS_TEXT
+      END
+   MENUITEM SEPARATOR
+   MENUITEM  "製品情報(~I)",    ID_MENU_PRODUCTINFO,  MIS_TEXT
+END
+
+
